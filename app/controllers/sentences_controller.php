@@ -344,8 +344,6 @@ class SentencesController extends AppController
 
         // saving
         if ($isSaved) {
-            $this->layout = null;
-
             $sentenceId = $this->Sentence->id;
             $sentence = $this->Sentence->getSentenceWithId($sentenceId);
 
