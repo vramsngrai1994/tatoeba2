@@ -142,6 +142,15 @@ $this->set('title_for_layout', $pages->formatTitle(__('Settings', true)));
             ?>
 
             <div>
+                <?php echo $form->checkbox('settings.responsive_ui'); ?>
+                <label for="UserSettingsResponsiveUi">
+                    <?php __(
+                        'Activate new user interface.'
+                    ); ?>
+                </label>
+            </div>
+
+            <div>
                 <?php echo $form->checkbox('jquery_chosen'); ?>
                 <label for="UserJqueryChosen">
                     <?php __(

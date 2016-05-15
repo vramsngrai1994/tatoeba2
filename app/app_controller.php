@@ -63,7 +63,8 @@ class AppController extends Controller
         'Search',
         'Security',
         'Session',
-        'Images'
+        'Images',
+        'Responsive'
     );
 
     private function remapOldLangAlias($lang)
@@ -208,8 +209,16 @@ class AppController extends Controller
         // without these 3 lines, html sent by AJAX will have the whole layout
         if ($this->RequestHandler->isAjax()) {
             $this->layout = null;
+
+        // Set responsive layout if option is enabled
+        } else if (CurrentUser::getSetting('responsive_ui')) {
+            $this->layout = 'responsive';
+            if ($this->_hasReponsiveView()) {
+                $controller = $this->params['controller'];
+                $this->viewPath = 'responsive' . DIRECTORY_SEPARATOR . $controller;
+            }
         }
-        
+
         // TODO
         // We're passing the value from the cookie to the session because it is
         // needed for the translation form (in helpers/sentences.php), but we
@@ -337,6 +346,24 @@ class AppController extends Controller
                 $this->Session->write('last_used_lang', $current);
             }
         }
+    }
+
+
+    /**
+     * Returns true if a responsive view has been implemented for a certain route.
+     * This is something that is set manually via the $responsiveViews array.
+     * Whenever a new responsive view is implemented, in order to make it available,
+     * you have to add the corresponding value into the $responsiveViews array.
+     *
+     * @return bool
+     */
+    private function _hasReponsiveView()
+    {
+        $view = $this->params['controller'] . '.' . $this->params['action'];
+        $responsiveViews =  array(
+        );
+
+        return in_array($view, $responsiveViews);
     }
 }
 ?>
