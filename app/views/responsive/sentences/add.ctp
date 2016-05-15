@@ -33,7 +33,7 @@ echo $responsive->js('sentences/add.ctrl.js');
 <div ng-controller="SentencesAddController as ctrl">
     <md-toolbar class="md-primary">
         <div class="md-toolbar-tools">
-            Add a sentence
+            <?php __('Add a sentence'); ?>
         </div>
     </md-toolbar>
     <md-content layout-padding class="md-whiteframe-1dp">
@@ -47,18 +47,28 @@ echo $responsive->js('sentences/add.ctrl.js');
                              md-min-length="1"
                              md-floating-label="Language (optional)">
                 <md-item-template>
-                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{language.name}}</span>
+                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">
+                        {{language.name}}
+                    </span>
                 </md-item-template>
                 <md-not-found>
-                    No results for <strong>{{ctrl.searchText}}</strong>.
-                    <a href="http://en.wiki.tatoeba.org/articles/show/new-language-request" target="_blank">
-                        Request a new language?
-                    </a>
+                    <?php
+                    echo format(
+                        __('No results for {searchText}.', true),
+                        array('searchText' => '<strong>{{ctrl.searchText}}</strong>')
+                    );
+                    echo ' ';
+                    echo $html->link(
+                        __('Request a new language?', true),
+                        'http://en.wiki.tatoeba.org/articles/show/new-language-request',
+                        array('target' => '_blank')
+                    )
+                    ?>
                 </md-not-found>
             </md-autocomplete>
 
             <md-input-container class="md-block" flex-gt-sm>
-                <label>Sentence</label>
+                <label><?php __('Sentence'); ?></label>
                 <input type="text" ng-model="ctrl.sentenceText"
                        ng-keyup="$event.keyCode == 13 && ctrl.addSentence()">
             </md-input-container>
@@ -67,7 +77,7 @@ echo $responsive->js('sentences/add.ctrl.js');
                 <md-button class="md-raised md-primary"
                            ng-disabled="!ctrl.sentenceText"
                            ng-click="ctrl.addSentence()">
-                    Submit
+                    <?php __('Submit'); ?>
                 </md-button>
             </div>
 
@@ -78,7 +88,7 @@ echo $responsive->js('sentences/add.ctrl.js');
 
     <md-toolbar class="md-accent">
         <div class="md-toolbar-tools">
-            <h2>Sentences added</h2>
+            <h2><?php __('Sentences added'); ?></h2>
             <span flex></span>
             <md-progress-circular md-mode="indeterminate" md-diameter="32"
                                   class="md-accent md-hue-1"
@@ -87,7 +97,8 @@ echo $responsive->js('sentences/add.ctrl.js');
         </div>
 
     </md-toolbar>
-    <mg-content layout="column" layout-align="center center" class="md-whiteframe-1dp" layout-padding>
+    <mg-content layout="column" layout-align="center center"
+                class="md-whiteframe-1dp" layout-padding>
         <div id="new-sentences"></div>
     </mg-content>
 </div>
