@@ -361,6 +361,7 @@ class AppController extends Controller
     {
         $view = $this->params['controller'] . '.' . $this->params['action'];
         $responsiveViews =  array(
+            'sentences.add'
         );
 
         return in_array($view, $responsiveViews);
