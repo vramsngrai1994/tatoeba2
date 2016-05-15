@@ -44,7 +44,7 @@
     // the name of the controller.
 
     // Generic
-    echo $html->css(CSS_PATH . 'layouts/default.css');
+    echo $html->css(CSS_PATH . 'layouts/responsive.css');
     echo $html->css(CSS_PATH . 'layouts/elements.css');
 
     // Specific
