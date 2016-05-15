@@ -6,7 +6,7 @@
         .config(function($mdThemingProvider, $httpProvider) {
             $mdThemingProvider.theme('default')
                 .primaryPalette('green')
-                .accentPalette('brown', {'default': '400'});
+                .accentPalette('green', {'default': '500'});
             $httpProvider.defaults.transformRequest = function(data) {
                 if (data === undefined) {
                     return data;
