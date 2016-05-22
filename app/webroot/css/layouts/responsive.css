@@ -163,7 +163,7 @@ rt {
 }
 
 #top_menu {
-    width: 960px;
+    max-width: 960px;
     margin: auto;
     overflow: hidden;
     padding: 10px;
@@ -219,7 +219,7 @@ rt {
     margin:0;
     border:0;
     position:absolute;
-    width:225px;
+    max-width:225px;
     z-index:200;
 }
 
@@ -233,7 +233,7 @@ rt {
     float:none;
     margin:0;
     padding:0;
-    width:225px;
+    max-width:225px;
     line-height: 24px;
 }
 
@@ -307,7 +307,7 @@ rt {
  */
 
 .container {
-    width: 960px;
+    max-width: 960px;
     margin: auto auto 10px;
 }
 
