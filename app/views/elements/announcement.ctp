@@ -34,8 +34,8 @@ if (Configure::read('Announcement.enabled')) {
         mobile-friendly! If you have experience in UI/UX design, please contact 
         Trang at trang@tatoeba.org.</p>
 
-        <p>We are also continuously looking for developers. If you are interested to 
-        contribute to a non-profit open source project, please read our guide on how 
+        <p>We are also continuously looking for developers. If you are interested in 
+        contributing to a non-profit open source project, please read our guide on how 
         to <a href="https://github.com/Tatoeba/tatoeba2/wiki/Joining-the-dev-team">
         join the dev team</a>.</p>
 
